@@ -1,0 +1,2 @@
+/* Public browser settings only. Never put a service-role key here. */
+window.PORTAL_CONFIG={SUPABASE_URL:"https://YOUR_PROJECT_ID.supabase.co",SUPABASE_ANON_KEY:"YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY"};
