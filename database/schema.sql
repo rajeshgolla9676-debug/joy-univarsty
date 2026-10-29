@@ -46,7 +46,9 @@ create policy roles_select_own_or_admin on public.user_roles for select to authe
 drop policy if exists audit_admin_select on public.admin_audit_logs;
 create policy audit_admin_select on public.admin_audit_logs for select to authenticated using((select public.is_admin()));
 grant usage on schema public to anon,authenticated;
-grant select,update on public.profiles to authenticated;
+revoke update on public.profiles from authenticated;
+grant update(full_name,department,course,academic_year,phone,updated_at) on public.profiles to authenticated;
+grant select on public.profiles to authenticated;
 grant select on public.user_roles,public.admin_audit_logs to authenticated;
 grant execute on function public.is_admin() to authenticated;
 -- After the intended admin account has signed up, run this trusted SQL with that account's UUID:
